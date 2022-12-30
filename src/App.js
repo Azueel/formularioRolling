@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { RegistroInput } from './components/RegistroInput';
+import { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [listaUsuarios, setUsuarios] = useState([]);
+
+	const agregarUsuariosLista = (nuevoUsuario) => {
+		setUsuarios([...listaUsuarios, nuevoUsuario]);
+	};
+
+	console.log(listaUsuarios);
+
+	return (
+		<div>
+			<h1 className="bg-dark text-white text-center p-2">Formulario</h1>
+
+			<RegistroInput agregarUsuariosLista={agregarUsuariosLista} />
+		</div>
+	);
 }
 
 export default App;
